@@ -1,16 +1,22 @@
 @use "/src/assets/scss/abstracts/mixins" as *;
 
-$weightsMap: (
-  "regular": 400,
-  "bold": 700,
+@include font-face(
+  "Nunito Sans",
+  "/src/assets/fonts/NunitoSans-Light.woff2",
+  normal,
+  300
 );
 
-@include weight-class($weightsMap);
+@include font-face(
+  "Nunito Sans",
+  "/src/assets/fonts/NunitoSans-SemiBold.woff2",
+  normal,
+  600
+);
 
 @include font-face(
-  "Kumbh Sans",
-  "/src/assets/fonts/KumbhSans-VariableFont_wght.woff2",
+  "Nunito Sans",
+  "/src/assets/fonts/NunitoSans-Bold.woff2",
   normal,
-  400,
-  700
+  800
 );

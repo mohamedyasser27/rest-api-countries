@@ -1,0 +1,30 @@
+.search-bar {
+  @include flexer($align: center);
+  @include widther(440px);
+  position: relative; /*relative to label icon*/
+  margin-block: 50px;
+
+  @include element("icon") {
+    @include svg-filler(var(--Input));
+  }
+  & > label {
+    @include flexer($align: center);
+    @include positioner(absolute, $left: 1.5rem);
+  }
+}
+
+#search-bar__input {
+  background-color: var(--Elements);
+  border: none;
+  border-radius: 5px;
+  box-shadow: var(--HeaderShadow);
+  color: inherit;
+  font-weight: 500;
+  padding: 1rem;
+  width: 100%;
+  text-indent: 3rem;
+
+  &:focus {
+    outline: none;
+  }
+}

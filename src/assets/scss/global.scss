@@ -4,9 +4,9 @@
 @use "./theme/lightTheme.scss" as lightTheme;
 body {
   font: {
-    family: "Nunito Sans";
-    size: 32px;
+    family: "Nunito Sans", sans-serif;
     weight: 600;
+    size: 16px;
   }
   scroll-behavior: smooth;
 }
