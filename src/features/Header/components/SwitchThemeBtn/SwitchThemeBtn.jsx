@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import ThemeContext from "@src/context/ThemeContext";
+import ThemeContext from "@context/ThemeContext";
 import "./switchThemeBtn.scss";
 export default function SwitchThemeBtn() {
   const { theme, switchTheme } = useContext(ThemeContext);
