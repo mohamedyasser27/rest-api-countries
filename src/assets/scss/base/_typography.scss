@@ -1,0 +1,16 @@
+@use "/src/assets/scss/abstracts/mixins" as *;
+
+$weightsMap: (
+  "regular": 400,
+  "bold": 700,
+);
+
+@include weight-class($weightsMap);
+
+@include font-face(
+  "Kumbh Sans",
+  "/src/assets/fonts/KumbhSans-VariableFont_wght.woff2",
+  normal,
+  400,
+  700
+);

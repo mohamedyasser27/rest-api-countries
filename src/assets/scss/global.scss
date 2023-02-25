@@ -1,0 +1,29 @@
+@use "./vendors/vendor-dir" as *;
+@use "./base/base-dir" as *;
+@use "./theme/darkTheme.scss" as darkTheme;
+@use "./theme/lightTheme.scss" as lightTheme;
+body {
+  font: {
+    family: "Nunito Sans";
+    size: 32px;
+    weight: 600;
+  }
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 90%;
+  margin-inline: auto;
+}
+main {
+  background-color: var(--Background);
+  color: var(--Text);
+
+  &.light {
+    @include themeGenerator(lightTheme.$colorPalette);
+  }
+
+  &.dark {
+    @include themeGenerator(darkTheme.$colorPalette);
+  }
+}
