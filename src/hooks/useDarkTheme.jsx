@@ -1,14 +1,26 @@
 import ThemeContext from "@src/context/ThemeContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+const getCurrentTheme = () => {
+  if (localStorage.getItem("theme") == null) {
+    const currentTheme = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? "dark"
+      : "light";
+    localStorage.setItem("theme", currentTheme);
+  }
+  return localStorage.getItem("theme");
+};
 
 export default function ThemeProvider({ children }) {
-  const getCurrentTheme = () =>
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  const [theme, setTheme] = useState(getCurrentTheme() ? "dark" : "light");
+  const [theme, setTheme] = useState(getCurrentTheme());
   function switchTheme() {
     setTheme((prev) => (prev == "dark" ? "light" : "dark"));
   }
+  
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   return (
     <ThemeContext.Provider value={{ theme, switchTheme }}>
       {children}
