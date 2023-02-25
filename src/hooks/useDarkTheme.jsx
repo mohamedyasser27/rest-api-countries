@@ -1,7 +1,11 @@
 import ThemeContext from "@src/context/ThemeContext";
 import { useState } from "react";
+
 export default function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("dark");
+  const getCurrentTheme = () =>
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const [theme, setTheme] = useState(getCurrentTheme() ? "dark" : "light");
   function switchTheme() {
     setTheme((prev) => (prev == "dark" ? "light" : "dark"));
   }

@@ -1,11 +1,10 @@
-import ThemeContext from "@src/context/ThemeContext";
-import useDarkTheme from "@src/hooks/useDarkTheme";
 import React, { useContext } from "react";
-import "./header.scss";
 import darkIcon from "/icon-dark.svg";
 import lightIcon from "/icon-light.svg";
+import "./header.scss";
+import ThemeContext from "@src/context/ThemeContext";
 export default function Header() {
-  const [theme,switchTheme] = useDarkTheme();
+  const {theme, switchTheme} = useContext(ThemeContext);
   return (
     <header className="header">
       <div className="container">

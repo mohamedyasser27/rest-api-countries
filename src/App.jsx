@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import Header from "@features/Header/";
 import "@assets/scss/global.scss";
-import useDarkTheme from "./hooks/useDarkTheme";
+import ThemeContext from "./context/ThemeContext";
 export default function App() {
-  const [theme] = useDarkTheme();
+  const { theme } = useContext(ThemeContext)
   return (
       <main className={theme}>
         <Header />
