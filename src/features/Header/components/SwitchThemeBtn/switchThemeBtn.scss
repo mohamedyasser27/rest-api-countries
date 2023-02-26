@@ -2,9 +2,17 @@
   @include reset-btn-style;
   @include flexer($align: center, $gap: 10px);
   color: inherit;
-  &:before {
-  @include flexer($align: center);
-    content: var(--ThemeIcon);
-    
+  transition: color 225ms ease-out;
+  position: relative;
+  margin-left: 30px;
+
+  .icon {
+    opacity: 0;
+    transition: opacity 225ms ease-out;
+    position: absolute;
+    translate: -30px;
+  }
+  .icon.visible {
+    opacity: 1;
   }
 }

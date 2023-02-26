@@ -2,6 +2,11 @@
 @use "./base/base-dir" as *;
 @use "./theme/darkTheme.scss" as darkTheme;
 @use "./theme/lightTheme.scss" as lightTheme;
+main {
+  --lightIcon: url("/public/icon-light.svg");
+  --darkIcon: url("/public/icon-dark.svg");
+}
+
 body {
   font: {
     family: "Nunito Sans", sans-serif;
@@ -18,6 +23,7 @@ body {
 main {
   background-color: var(--Background);
   color: var(--Text);
+  transition: background-color 225ms ease-out, color 225ms ease-out;
 
   &.light {
     @include themeGenerator(lightTheme.$colorPalette);
