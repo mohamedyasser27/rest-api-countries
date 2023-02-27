@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import useToggle from "@src/hooks/useToggle";
 import ExpandLogo from "@src/components/ExpandLogo/ExpandLogo";
 import "./DropDown.scss";
+import useCountriesApi from "@hooks/useCountriesApi";
 
-export default function DropDown() {
+export default function DropDown({ setCountriesData }) {
   const [isToggled, switchToggle] = useToggle();
-  const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+  const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+  const [lastRequest, setLastRequest] = useState("");
+  const { filterCountries } = useCountriesApi();
+
   function createDropDownList(list) {
     return list.map((listValue) => {
       return (
         <li key={listValue} className="drop-down__list-item">
           <button
+            value={listValue}
             className="drop-down__btn"
-            onClick={() => {
-              console.log("make Api Call");
+            onClick={async ({ target }) => {
+              setLastRequest(target.value);
+              target.value !== lastRequest &&//to stop the request if it's the same
+                setCountriesData(await filterCountries("region", target.value));
             }}
           >
             {listValue}

@@ -1,13 +1,12 @@
 import React from "react";
-import "./Toolbar.scss";
 import SearchBar from "./components/SearchBar/SearchBar";
-import "./Toolbar.scss";
 import DropDown from "./components/DropDown/DropDown";
-export default function Toolbar() {
+import "./Toolbar.scss";
+export default function Toolbar({ setCountriesData }) {
   return (
     <div className="toolbar">
       <SearchBar />
-      <DropDown />
+      <DropDown setCountriesData={setCountriesData} />
     </div>
   );
 }

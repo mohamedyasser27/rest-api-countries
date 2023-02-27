@@ -1,0 +1,13 @@
+.country-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 70px;
+}
+@media only screen and (max-width: 340px) {
+  .country-card__details {
+    word-break: break-all;
+  }
+  .country-cards {
+    grid-template-columns: 1fr;
+  }
+}

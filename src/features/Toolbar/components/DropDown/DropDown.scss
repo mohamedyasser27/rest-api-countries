@@ -39,7 +39,6 @@
 
   @include element("btn") {
     @include colorize(transparent, var(--Text));
-
     border: none;
     width: 100%;
     text-align: start;
