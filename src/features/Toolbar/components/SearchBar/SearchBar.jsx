@@ -2,8 +2,8 @@ import React from "react";
 import "./SearchBar.scss";
 export default function SearchBar() {
   return (
-    <div class="search-bar">
-      <label for="search-bar__input">
+    <div className="search-bar">
+      <label htmlFor="search-bar__input">
         <svg
           className="search-bar__icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@ export default function SearchBar() {
         placeholder="search for a country..."
         type="text"
         name="countryName"
-        autocomplete="off"
+        autoComplete="off"
       />
     </div>
   );

@@ -13,11 +13,11 @@
 }
 
 #search-bar__input {
-  background-color: var(--Elements);
+  @include colorize(var(--Elements), inherit);
+
   border: none;
   border-radius: 5px;
   box-shadow: var(--HeaderShadow);
-  color: inherit;
   font-weight: 500;
   padding: 1rem;
   width: 100%;

@@ -121,3 +121,9 @@
     #{$color}: $colorValue;
   }
 }
+
+
+@mixin colorize($bg,$color){
+  background-color: $bg;
+  color: $color;
+}

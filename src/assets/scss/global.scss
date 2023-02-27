@@ -25,8 +25,7 @@ main {
   & * {
     transition: background-color 225ms ease-out, color 225ms ease-out;
   }
-  background-color: var(--Background);
-  color: var(--Text);
+  @include colorize(var(--Background), var(--Text));
 
   &.light {
     @include themeGenerator(lightTheme.$colorPalette);
