@@ -1,0 +1,72 @@
+.drop-down {
+  @include widther(200px);
+  position: relative;
+  box-shadow: var(--HeaderShadow);
+}
+
+.drop-down__list {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  z-index: 2;
+  background-color: var(--Elements);
+  color: var(--Text);
+  width: 100%;
+  padding: 10px 20px;
+  margin-top: 5px;
+  border-radius: 5px;
+  transition: opacity 225ms ease-out 100ms, visibility 225ms ease-out 100ms;
+}
+
+.drop-down__list.visible,
+.drop-down__toggle:hover + .drop-down__list,
+.drop-down__list:hover {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: initial;
+  transition: opacity 225ms ease-out 0s, visibility 225ms ease-out 0s;
+}
+
+.drop-down__toggle {
+  border: none;
+  background-color: var(--Elements);
+  color: var(--Text);
+  border-radius: 5px;
+  padding: 20px;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.drop-down__toggle:after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: var(--Text);
+  clip-path: polygon(0% 50%, 50% 0%, 100% 50%);
+  translate: 0px 3px;
+  transition: background-color 225ms ease-out, color 225ms ease-out;
+}
+
+.drop-down__toggle.visible::after {
+  background-color: #fff;
+  clip-path: polygon(100% 50%, 50% 100%, 0 50%);
+  translate: 0px 0px;
+}
+
+.drop-down__btn {
+  border: none;
+  background-color: #2b3743;
+  color: #fff;
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
+}
+
+.drop-down__btn:hover {
+  color: rgb(111, 111, 248);
+}
