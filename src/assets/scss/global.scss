@@ -21,9 +21,12 @@ body {
   margin-inline: auto;
 }
 main {
+  &,
+  & * {
+    transition: background-color 225ms ease-out, color 225ms ease-out;
+  }
   background-color: var(--Background);
   color: var(--Text);
-  transition: background-color 225ms ease-out, color 225ms ease-out;
 
   &.light {
     @include themeGenerator(lightTheme.$colorPalette);

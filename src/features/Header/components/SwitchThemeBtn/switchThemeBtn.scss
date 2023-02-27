@@ -2,7 +2,6 @@
   @include reset-btn-style;
   @include flexer($align: center, $gap: 10px);
   color: inherit;
-  transition: color 225ms ease-out;
   position: relative;
   margin-left: 30px;
 

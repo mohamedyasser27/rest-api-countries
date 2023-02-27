@@ -2,8 +2,6 @@
   @include flexer($align: center);
   @include widther(440px);
   position: relative; /*relative to label icon*/
-  margin-block: 50px;
-
 
   @include element("icon") {
     @include svg-filler(var(--Input));
@@ -24,8 +22,6 @@
   padding: 1rem;
   width: 100%;
   text-indent: 3rem;
-  transition: background-color 225ms ease-out, color 225ms ease-out;
-
 
   &:focus {
     outline: none;
