@@ -1,11 +1,31 @@
 @use "./vendors/vendor-dir" as *;
 @use "./base/base-dir" as *;
-@use "./theme/darkTheme.scss" as darkTheme;
-@use "./theme/lightTheme.scss" as lightTheme;
+
 main {
   --lightIcon: url("/public/icon-light.svg");
   --darkIcon: url("/public/icon-dark.svg");
 }
+
+$themes: (
+  darkTheme: (
+    "--Elements": #2b3945,
+    "--Background": #202c37,
+    "--Text": #ffffff,
+    "--Input": #fff,
+    "--HeaderShadow": (
+      0px 2px 15px -3px rgba(0, 0, 0, 0.192),
+    ),
+  ),
+  lightTheme: (
+    "--Elements": #ffffff,
+    "--Background": #fafafa,
+    "--Text": #111517,
+    "--Input": #616161,
+    "--HeaderShadow": (
+      0px 2px 15px -3px rgba(116, 115, 115, 0.233),
+    ),
+  ),
+);
 
 body {
   font: {
@@ -17,22 +37,34 @@ body {
 }
 
 .container {
-  width: 90%;
+  width: min(1440px, 90%);
   margin-inline: auto;
-
 }
 main {
-  &,
-  & * {
-    transition: background-color 225ms ease-out, color 225ms ease-out;
-  }
-  @include colorize(var(--Background), var(--Text));
-
+  background-color: var(--Background);
+  color: var(--Text);
   &.light {
-    @include themeGenerator(lightTheme.$colorPalette);
+    @include themeGenerator($themes, "lightTheme");
   }
 
   &.dark {
-    @include themeGenerator(darkTheme.$colorPalette);
+    @include themeGenerator($themes, "darkTheme");
   }
+}
+
+.country-card,
+.search-bar,
+.drop-down__toggle,
+.toggle-icon,
+.header,
+.drop-down__list,
+#search-bar__input,
+.search-bar__icon {
+  background-color: var(--Elements);
+  color: var(--Text);
+  transition: background-color 225ms ease-out, color 225ms ease-out;
+}
+
+.switch-theme-btn {
+  transition: color 225ms ease-out;
 }

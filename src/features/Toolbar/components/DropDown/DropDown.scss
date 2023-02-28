@@ -5,7 +5,6 @@
   position: relative; //relative to list
 
   @include element("list") {
-    @include colorize(var(--Elements), var(--Text));
     @include positioner(absolute, $z-index: 2);
     box-shadow: var(--HeaderShadow);
     border-radius: 5px;
@@ -25,7 +24,6 @@
   @include element("toggle") {
     $padding: 20px;
     @include flexer($justify: space-between, $align: center, $wrap: wrap);
-    @include colorize(var(--Elements), var(--Text));
     border: none;
     border-radius: 5px;
     padding: $padding;
@@ -38,7 +36,8 @@
   }
 
   @include element("btn") {
-    @include colorize(transparent, var(--Text));
+    background-color: transparent;
+    color: var(--Text);
     border: none;
     width: 100%;
     text-align: start;

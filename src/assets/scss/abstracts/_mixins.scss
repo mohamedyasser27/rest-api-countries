@@ -114,16 +114,24 @@
   background: linear-gradient($direction, $list);
 }
 
-
-
-@mixin themeGenerator($theme) {
-  @each $color, $colorValue in $theme {
-    #{$color}: $colorValue;
+@mixin themeGenerator($themes, $chosenTheme) {
+  @each $key, $color in map-get($themes, $chosenTheme) {
+    #{$key}: $color;
+    
   }
 }
 
-
-@mixin colorize($bg,$color){
+@mixin colorize($bg, $color) {
   background-color: $bg;
   color: $color;
+}
+
+@mixin styles($mode, $themes) {
+  @each $key, $map in $themes {
+    @each $prop, $color in $map {
+      @if $prop == $mode {
+        --#{$key}: #{$color};
+      }
+    }
+  }
 }

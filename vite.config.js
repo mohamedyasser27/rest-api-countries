@@ -7,8 +7,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData:
-          '@use "./src/assets/scss/abstracts/_abstracts-dir.scss" as *;',
-      },
+          '@use "./src/assets/scss/abstracts/_abstracts-dir.scss" as *;'},
     },
   },
   resolve: {

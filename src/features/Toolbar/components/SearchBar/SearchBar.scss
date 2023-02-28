@@ -13,7 +13,6 @@
 }
 
 #search-bar__input {
-  @include colorize(var(--Elements), inherit);
 
   border: none;
   border-radius: 5px;
