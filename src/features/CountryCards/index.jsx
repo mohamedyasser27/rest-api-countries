@@ -5,7 +5,10 @@ export default function CountryCards({ countriesData }) {
   function createCountriesList() {
     return countriesData.map((countryData) => {
       return (
-          <CountryCard countryData={countryData} />
+        <CountryCard
+          key={`${countryData.name}+${countryData.capital}`}
+          countryData={countryData}
+        />
       );
     });
   }

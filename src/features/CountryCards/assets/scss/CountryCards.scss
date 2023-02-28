@@ -1,9 +1,12 @@
 .country-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 70px;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(clamp(230px, calc((100% - 50px) / 4), 250px), 1fr)
+  );
+  gap: 50px;
 }
-@media only screen and (max-width: 340px) {
+@media (max-width: 340px) {
   .country-card__details {
     word-break: break-all;
   }

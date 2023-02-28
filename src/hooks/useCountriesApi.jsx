@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useEffect } from "react";
 export default function useCountriesApi() {
   function extractCountryRequiredData(country) {
     const {
@@ -46,13 +45,5 @@ export default function useCountriesApi() {
       )
     );
   }
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     console.log(await getAllCountries());
-  //   }
-  //   fetchData();
-  // }, []);
-
   return { getAllCountries, filterCountries };
 }

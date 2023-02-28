@@ -5,7 +5,7 @@ import "./Toolbar.scss";
 export default function Toolbar({ setCountriesData }) {
   return (
     <div className="toolbar">
-      <SearchBar />
+      <SearchBar setCountriesData={setCountriesData} />
       <DropDown setCountriesData={setCountriesData} />
     </div>
   );

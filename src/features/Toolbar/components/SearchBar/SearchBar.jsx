@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SearchBar.scss";
-export default function SearchBar() {
+import useCountriesApi from "@hooks/useCountriesApi";
+export default function SearchBar({ setCountriesData }) {
+  const [countryName, setCountryName] = useState("");
+  const { filterCountries } = useCountriesApi();
+
+  function onChange(e) {
+    setCountryName(e.target.value);
+  }
+  async function dataFetch() {
+    await setCountriesData(await filterCountries("name", countryName));
+    setCountryName("");
+  }
+  function onSubmit(e) {
+    e.preventDefault();
+    dataFetch();
+  }
+
   return (
-    <div className="search-bar">
+    <form onSubmit={onSubmit} action="" className="search-bar">
       <label htmlFor="search-bar__input">
         <svg
           className="search-bar__icon"
@@ -18,11 +34,13 @@ export default function SearchBar() {
       </label>
       <input
         id="search-bar__input"
-        placeholder="search for a country..."
-        type="text"
         name="countryName"
+        type="text"
+        value={countryName}
+        onChange={onChange}
+        placeholder="search for a country..."
         autoComplete="off"
       />
-    </div>
+    </form>
   );
 }

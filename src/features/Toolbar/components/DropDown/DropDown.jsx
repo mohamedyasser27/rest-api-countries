@@ -6,9 +6,9 @@ import useCountriesApi from "@hooks/useCountriesApi";
 
 export default function DropDown({ setCountriesData }) {
   const [isToggled, switchToggle] = useToggle();
-  const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
   const [lastRequest, setLastRequest] = useState("");
   const { filterCountries } = useCountriesApi();
+  const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
   function createDropDownList(list) {
     return list.map((listValue) => {
