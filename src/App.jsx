@@ -3,8 +3,8 @@ import Header from "@features/Header/";
 import Toolbar from "@features/Toolbar/";
 import CountryCards from "@features/CountryCards/";
 import ThemeContext from "@context/ThemeContext";
-import "@assets/scss/global.scss";
 import useCountriesApi from "@hooks/useCountriesApi";
+import "@assets/scss/global.scss";
 export default function App() {
   const { theme } = useContext(ThemeContext);
   const [countriesData, setCountriesData] = useState([]);

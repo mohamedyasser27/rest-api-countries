@@ -4,23 +4,6 @@
   @include widther($drop-down-width);
   position: relative; //relative to list
 
-  @include element("list") {
-    @include positioner(absolute, $z-index: 2);
-    box-shadow: var(--HeaderShadow);
-    border-radius: 5px;
-    width: 100%;
-    padding: 10px 20px;
-    margin-top: 5px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 225ms ease-out, visibility 225ms ease-out;
-
-    &.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
-
   @include element("toggle") {
     $padding: 20px;
     @include flexer($justify: space-between, $align: center, $wrap: wrap);
@@ -32,6 +15,31 @@
     @media (max-width: calc($drop-down-width + $padding / 4  + 5vw)) {
       //5vw=10% /2 because container takes 90%
       justify-content: center;
+    }
+  }
+  @include element("icon") {
+    @include svg-filler(var(--Input));
+  }
+
+  @include element("list") {
+    @include positioner(absolute, $z-index: 2);
+    @include colorize(var(--Elements), var(--Text));
+    box-shadow: var(--HeaderShadow);
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: {
+      property: background-color, opacity, color, visibility;
+      duration: 225ms;
+      timing-function: ease-out;
+    }
+
+    &.visible {
+      opacity: 1;
+      visibility: visible;
     }
   }
 

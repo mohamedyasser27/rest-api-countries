@@ -5,15 +5,12 @@
 
   @include element("icon") {
     @include svg-filler(var(--Input));
+    @include positioner(absolute,$left:1.5rem);
   }
-  & > label {
-    @include flexer($align: center);
-    @include positioner(absolute, $left: 1.5rem);
-  }
+
 }
 
 #search-bar__input {
-
   border: none;
   border-radius: 5px;
   box-shadow: var(--HeaderShadow);
