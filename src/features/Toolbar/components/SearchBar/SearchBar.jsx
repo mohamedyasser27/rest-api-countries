@@ -10,8 +10,6 @@ export default function SearchBar({ setCountriesData }) {
     setCountrynameInput(target.value);
   }
 
-
-  
   async function onSubmit(e) {
     e.preventDefault();
     await setCountriesData(await filterCountries("name", countrynameInput));
@@ -19,7 +17,7 @@ export default function SearchBar({ setCountriesData }) {
   }
 
   return (
-    <form onSubmit={onSubmit} action="" className="search-bar">
+    <form onSubmit={onSubmit} className="search-bar">
       <SearchIcon className="search-bar__icon" />
       <input
         id="search-bar__input"

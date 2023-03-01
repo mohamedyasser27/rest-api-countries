@@ -2,9 +2,8 @@
   display: grid;
   grid-template-rows: 150px 1fr;
   border-radius: 10px;
-  box-shadow: var(--HeaderShadow);
-  transition: background-color 225ms ease-out, color 225ms ease-out,
-    scale 225ms ease-out;
+  box-shadow: var(--ElementShadow);
+  transition: scale 225ms ease-out;
 
   & span {
     font-weight: 800;

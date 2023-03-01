@@ -1,15 +1,9 @@
 import React from "react";
 import DropDownIcon from "./DropDownIcon";
 
-export default function DropDownToggle({ isToggled, switchToggle }) {
+export default function DropDownToggle({ isToggled, toggleDropDown }) {
   return (
-    <button
-      className="drop-down__toggle"
-      onBlur={() => {
-        isToggled && switchToggle();
-      }}
-      onClick={switchToggle}
-    >
+    <button className="drop-down__toggle" onClick={toggleDropDown}>
       Filter By A Region
       <DropDownIcon isToggled={isToggled} />
     </button>

@@ -2,18 +2,18 @@
   @include flexer($align: center);
   @include widther(440px);
   position: relative; /*relative to label icon*/
+  border-radius: 5px;
 
   @include element("icon") {
     @include svg-filler(var(--Input));
-    @include positioner(absolute,$left:1.5rem);
+    @include positioner(absolute, $left: 1.5rem);
   }
-
 }
 
 #search-bar__input {
   border: none;
-  border-radius: 5px;
-  box-shadow: var(--HeaderShadow);
+  border-radius: inherit;
+  box-shadow: var(--ElementShadow);
   font-weight: 500;
   padding: 1rem;
   width: 100%;

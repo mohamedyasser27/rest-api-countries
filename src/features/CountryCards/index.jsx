@@ -13,6 +13,5 @@ export default function CountryCards({ countriesData }) {
     });
   }, [countriesData]);
 
-  console.log(countriesList);
   return <div className="country-cards">{countriesList}</div>;
 }

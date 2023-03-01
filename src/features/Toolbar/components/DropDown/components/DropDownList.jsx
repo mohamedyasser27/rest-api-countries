@@ -1,9 +1,17 @@
 import React from "react";
 import useCountriesApi from "@hooks/useCountriesApi";
-export default function DropDownList({ isToggled, setCountriesData }) {
+export default function DropDownList({
+  isToggled,
+  toggleDropDown,
+  setCountriesData,
+}) {
   const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
-
   const { filterCountries } = useCountriesApi();
+
+  async function fetchData({target}) {
+    setCountriesData(await filterCountries("region", target.value));
+  }
+
   return (
     <ul className={`drop-down__list ${isToggled ? "visible" : ""}`}>
       {regions.map((listValue) => {
@@ -13,13 +21,14 @@ export default function DropDownList({ isToggled, setCountriesData }) {
               value={listValue}
               className="drop-down__btn"
               onClick={async ({ target }) => {
-                setCountriesData(await filterCountries("region", target.value));
+                await fetchData(target);
+                toggleDropDown(false);
               }}
             >
               {listValue}
             </button>
           </li>
-        );
+      );
       })}
     </ul>
   );
