@@ -45,5 +45,6 @@ export default function useCountriesApi() {
       )
     );
   }
+  
   return { getAllCountries, filterCountries };
 }

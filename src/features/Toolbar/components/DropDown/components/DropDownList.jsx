@@ -1,6 +1,5 @@
 import React from "react";
 import useCountriesApi from "@hooks/useCountriesApi";
-import "./dropDownList.scss";
 export default function DropDownList({ isToggled, setCountriesData }) {
   const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 

@@ -1,27 +1,24 @@
 @use "./vendors/vendor-dir" as *;
 @use "./base/base-dir" as *;
 
-main {
-  --lightIcon: url("/public/icon-light.svg");
-  --darkIcon: url("/public/icon-dark.svg");
-}
+
 
 $themes: (
   darkTheme: (
-    "--Elements": #2b3945,
-    "--Background": #202c37,
-    "--Text": #ffffff,
-    "--Input": #fff,
-    "--HeaderShadow": (
+    "--ElementBG": #2b3945,
+    "--MainBG": #202c37,
+    "--TextColor": #ffffff,
+    "--InputColor": #fff,
+    "--ElementShadow": (
       0px 2px 15px -3px rgba(0, 0, 0, 0.192),
     ),
   ),
   lightTheme: (
-    "--Elements": #ffffff,
-    "--Background": #fafafa,
-    "--Text": #111517,
-    "--Input": #616161,
-    "--HeaderShadow": (
+    "--ElementBG": #ffffff,
+    "--MainBG": #fafafa,
+    "--TextColor": #111517,
+    "--InputColor": #616161,
+    "--ElementShadow": (
       0px 2px 15px -3px rgba(116, 115, 115, 0.233),
     ),
   ),
@@ -40,9 +37,9 @@ body {
   width: min(1440px, 90%);
   margin-inline: auto;
 }
+
 main {
-  background-color: var(--Background);
-  color: var(--Text);
+  @include colorize(var(--MainBG), var(--TextColor));
   &.light {
     @include themeGenerator($themes, "lightTheme");
   }
@@ -58,12 +55,5 @@ main {
 .header,
 #search-bar__input,
 .search-bar__icon {
-  
-  background-color: var(--Elements);
-  color: var(--Text);
-  transition: background-color 225ms ease-out, color 225ms ease-out;
-}
-
-.switch-theme-btn {
-  transition: color 225ms ease-out;
+  @include colorize(var(--ElementBG), inherit);
 }

@@ -21,7 +21,7 @@ export default function App() {
       <Header />
       <div className="container">
         <Toolbar setCountriesData={setCountriesData} />
-        <CountryCards countriesData={countriesData} />
+        {/* <CountryCards countriesData={countriesData} /> */}
       </div>
     </main>
   );

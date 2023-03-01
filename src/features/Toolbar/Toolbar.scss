@@ -5,6 +5,5 @@
     $gap: 30px,
     $wrap: wrap
   );
-  margin-block: 50px;
-  position: relative;
+  margin-block: min(10vh, 50px);
 }

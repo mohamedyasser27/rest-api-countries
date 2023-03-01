@@ -10,14 +10,12 @@ export default function SearchBar({ setCountriesData }) {
     setCountrynameInput(target.value);
   }
 
-  async function fetchCountryData() {
+
+  
+  async function onSubmit(e) {
+    e.preventDefault();
     await setCountriesData(await filterCountries("name", countrynameInput));
     setCountrynameInput("");
-  }
-
-  function onSubmit(e) {
-    e.preventDefault();
-    fetchCountryData();
   }
 
   return (

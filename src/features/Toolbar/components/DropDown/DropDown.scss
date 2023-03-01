@@ -1,6 +1,6 @@
 .drop-down {
   $drop-down-width: 200px;
-  box-shadow: var(--HeaderShadow);
+  box-shadow: var(--ElementShadow);
   @include widther($drop-down-width);
   position: relative; //relative to list
 
@@ -12,30 +12,22 @@
     padding: $padding;
     width: 100%;
     cursor: pointer;
-    @media (max-width: calc($drop-down-width + $padding / 4  + 5vw)) {
-      //5vw=10% /2 because container takes 90%
-      justify-content: center;
-    }
   }
+  
   @include element("icon") {
-    @include svg-filler(var(--Input));
+    @include svg-filler(var(--InputColor));
   }
 
   @include element("list") {
     @include positioner(absolute, $z-index: 2);
-    @include colorize(var(--Elements), var(--Text));
-    box-shadow: var(--HeaderShadow);
+    @include colorize(var(--ElementBG), var(--TextColor));
+    box-shadow: var(--ElementShadow);
     border-radius: 5px;
     width: 100%;
     padding: 10px 20px;
     margin-top: 5px;
     opacity: 0;
     visibility: hidden;
-    transition: {
-      property: background-color, opacity, color, visibility;
-      duration: 225ms;
-      timing-function: ease-out;
-    }
 
     &.visible {
       opacity: 1;
@@ -44,8 +36,7 @@
   }
 
   @include element("btn") {
-    background-color: transparent;
-    color: var(--Text);
+    @include colorize(transparent,inherit);
     border: none;
     width: 100%;
     text-align: start;

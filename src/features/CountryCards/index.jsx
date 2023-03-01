@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useMemo } from "react";
 import "./assets/scss/CountryCards.scss";
 import CountryCard from "./components/CountryCard/CountryCard";
 export default function CountryCards({ countriesData }) {
-  function createCountriesList() {
+  const countriesList = useMemo(() => {
     return countriesData.map((countryData) => {
       return (
         <CountryCard
@@ -11,6 +11,8 @@ export default function CountryCards({ countriesData }) {
         />
       );
     });
-  }
-  return <div className="country-cards">{createCountriesList()}</div>;
+  }, [countriesData]);
+
+  console.log(countriesList);
+  return <div className="country-cards">{countriesList}</div>;
 }

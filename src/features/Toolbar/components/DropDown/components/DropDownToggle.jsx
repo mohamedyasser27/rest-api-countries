@@ -1,5 +1,4 @@
 import React from "react";
-import "./dropDownToggle.scss";
 import DropDownIcon from "./DropDownIcon";
 
 export default function DropDownToggle({ isToggled, switchToggle }) {
