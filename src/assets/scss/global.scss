@@ -52,7 +52,6 @@ main {
   }
 }
 
-.country-card,
 .search-bar,
 .drop-down__toggle,
 .toggle-icon,
@@ -60,6 +59,7 @@ main {
 .drop-down__list,
 #search-bar__input,
 .search-bar__icon {
+  
   background-color: var(--Elements);
   color: var(--Text);
   transition: background-color 225ms ease-out, color 225ms ease-out;

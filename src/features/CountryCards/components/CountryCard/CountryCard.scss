@@ -1,14 +1,22 @@
 .country-card {
-  border-radius: 10px;
-  box-shadow: var(--HeaderShadow);
   display: grid;
   grid-template-rows: 150px 1fr;
-  width: 100%;
+  border-radius: 10px;
+  box-shadow: var(--HeaderShadow);
+  transition: background-color 225ms ease-out, color 225ms ease-out,
+    scale 225ms ease-out;
 
   & span {
     font-weight: 800;
   }
 
+  &:hover {
+    scale: 1.1;
+    .country-card__flag-img {
+      scale: 1.01;
+      rotate: 3deg;
+    }
+  }
 
   @include element("details") {
     padding: 25px;
@@ -16,11 +24,17 @@
     overflow-wrap: break-word;
   }
 
-  @include element("flag") {
+  @include element("flag-container") {
     @include size(100%, 100%);
+    overflow: hidden;
     border-top: {
       left-radius: 10px;
       right-radius: 10px;
+    }
+    img {
+      width: inherit;
+      height: inherit;
+      transition: scale 225ms ease-out, rotate 225ms ease-out;
     }
   }
 

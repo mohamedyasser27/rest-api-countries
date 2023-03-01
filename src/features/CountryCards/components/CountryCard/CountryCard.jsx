@@ -4,7 +4,12 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 export default function CountryCard({ countryData }) {
   return (
     <div className="country-card">
-      <LazyLoadImage className="country-card__flag" src={countryData.flagImg} />
+      <div className="country-card__flag-container">
+        <LazyLoadImage
+          className="country-card__flag-img"
+          src={countryData.flagImg}
+        />
+      </div>
       <div className="country-card__details">
         <h2 className="country-card__name">{countryData.name}</h2>
         <p className="country-card__population">

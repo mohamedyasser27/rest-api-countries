@@ -1,6 +1,5 @@
 html {
   box-sizing: border-box;
-  height: 100%;
 }
 *,
 *:before,
@@ -29,8 +28,6 @@ body,
 #root {
   height: 100%;
 }
-main{
+main {
   min-height: 100%;
-
-
 }
