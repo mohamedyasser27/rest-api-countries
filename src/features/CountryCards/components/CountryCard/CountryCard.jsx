@@ -17,11 +17,9 @@ export default function CountryCard({ countryData }) {
         </p>
         <p className="country-card__region">
           <span> region:</span> {countryData.region}
-          <span></span>
         </p>
         <p className="country-card__capital">
           <span> capital:</span> {countryData.capital}
-          <span></span>
         </p>
       </div>
     </div>
