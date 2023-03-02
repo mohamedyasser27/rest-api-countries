@@ -2,12 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import Header from "@features/Header/";
 import Toolbar from "@features/Toolbar/";
 import CountryCards from "@features/CountryCards/";
-import ThemeContext from "@context/ThemeContext";
 import useCountriesApi from "@hooks/useCountriesApi";
+import ThemeContext from "@context/ThemeContext";
+import CountriesContext from "./context/CountriesContext";
 import "@assets/scss/global.scss";
 export default function App() {
   const { theme } = useContext(ThemeContext);
   const [countriesData, setCountriesData] = useState([]);
+
   const { getAllCountries } = useCountriesApi();
 
   useEffect(() => {
@@ -20,8 +22,10 @@ export default function App() {
     <main className={theme}>
       <Header />
       <div className="container">
-        <Toolbar setCountriesData={setCountriesData} />
-        <CountryCards countriesData={countriesData} />
+        <CountriesContext.Provider value={{ countriesData, setCountriesData }}>
+          <Toolbar  />
+          <CountryCards />
+        </CountriesContext.Provider>
       </div>
     </main>
   );

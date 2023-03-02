@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import CountriesContext from "@src/context/CountriesContext";
 import useCountriesApi from "@hooks/useCountriesApi";
 import { ReactComponent as SearchIcon } from "/public/icon-search.svg";
 import "./SearchBar.scss";
-export default function SearchBar({ setCountriesData }) {
+export default function SearchBar() {
   const [countrynameInput, setCountrynameInput] = useState("");
   const { filterCountries } = useCountriesApi();
+  const { setCountriesData } = useContext(CountriesContext);
 
   function onChange({ target }) {
     setCountrynameInput(target.value);

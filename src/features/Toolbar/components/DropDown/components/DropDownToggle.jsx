@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import toggleContext from "@context/ToggleContext";
 import DropDownIcon from "./DropDownIcon";
 
-export default function DropDownToggle({ isToggled, toggleDropDown }) {
+export default function DropDownToggle() {
+  const [isToggled, toggleDropDown] = useContext(toggleContext);
+  
   return (
     <button
       className="drop-down__toggle"
@@ -11,7 +14,7 @@ export default function DropDownToggle({ isToggled, toggleDropDown }) {
       }}
     >
       Filter By A Region
-      <DropDownIcon isToggled={isToggled} />
+      <DropDownIcon  />
     </button>
   );
 }

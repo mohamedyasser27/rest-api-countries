@@ -1,7 +1,11 @@
-import React from "react";
+import React,{useContext} from "react";
 import { ReactComponent as ExpandIcon } from "/public/icon-expand.svg";
 import { ReactComponent as MinimizeIcon } from "/public/icon-minimize.svg";
-export default function DropDownIcon({ isToggled }) {
+import toggleContext from "@context/ToggleContext";
+export default function DropDownIcon() {
+  
+  const [isToggled] = useContext(toggleContext);
+
   return (
     <>
       {isToggled ? (

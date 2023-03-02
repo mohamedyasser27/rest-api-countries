@@ -1,32 +1,20 @@
-import React from "react";
-import useCountriesApi from "@hooks/useCountriesApi";
-export default function DropDownList({
-  isToggled,
-  toggleDropDown,
-  setCountriesData,
-}) {
-  const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
-  const { filterCountries } = useCountriesApi();
+import React, { useContext } from "react";
+import toggleContext from "@context/ToggleContext";
+import DropDownItem from "./DropDownItem";
 
-  async function fetchData(regionName) {
-    setCountriesData(await filterCountries("region", regionName));
-  }
+export default function DropDownList({ setCountriesData }) {
+  const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+  const [isToggled] = useContext(toggleContext);
 
   return (
     <ul className={`drop-down__list ${isToggled ? "visible" : ""}`}>
       {regions.map((listValue) => {
         return (
-          <li key={listValue} className="drop-down__list-item">
-            <button
-              value={listValue}
-              className="drop-down__btn"
-              onMouseDown={async ({ target }) => {
-                await fetchData(target.value);
-              }}
-            >
-              {listValue}
-            </button>
-          </li>
+          <DropDownItem
+            key={listValue}
+            listValue={listValue}
+            setCountriesData={setCountriesData}
+          />
         );
       })}
     </ul>

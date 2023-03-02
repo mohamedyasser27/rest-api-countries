@@ -1,23 +1,17 @@
 import React from "react";
 import useToggle from "@src/hooks/useToggle";
+import toggleContext from "@context/ToggleContext";
 import DropDownList from "./components/DropDownList";
 import DropDownToggle from "./components/DropDownToggle";
 import "./DropDown.scss";
 
-export default function DropDown({ setCountriesData }) {
-  const [isToggled, toggleDropDown] = useToggle();
-
+export default function DropDown() {
   return (
     <div className="drop-down">
-      <DropDownToggle
-        isToggled={isToggled}
-        toggleDropDown={toggleDropDown}
-      />
-      <DropDownList
-        isToggled={isToggled}
-        toggleDropDown={toggleDropDown}
-        setCountriesData={setCountriesData}
-      />
+      <toggleContext.Provider value={useToggle()}>
+        <DropDownToggle />
+        <DropDownList />
+      </toggleContext.Provider>
     </div>
   );
 }
