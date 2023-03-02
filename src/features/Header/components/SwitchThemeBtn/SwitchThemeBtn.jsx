@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import ThemeContext from "@context/ThemeContext";
 import { ReactComponent as DarkIcon } from "/public/icon-dark.svg";
 import { ReactComponent as LighIcon } from "/public/icon-light.svg";
+import "./switchThemeBtn.scss";
 
 export default function SwitchThemeBtn() {
   const { theme, switchTheme } = useContext(ThemeContext);

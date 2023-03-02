@@ -8,8 +8,8 @@ export default function DropDownList({
   const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
   const { filterCountries } = useCountriesApi();
 
-  async function fetchData({target}) {
-    setCountriesData(await filterCountries("region", target.value));
+  async function fetchData(regionName) {
+    setCountriesData(await filterCountries("region", regionName));
   }
 
   return (
@@ -20,15 +20,14 @@ export default function DropDownList({
             <button
               value={listValue}
               className="drop-down__btn"
-              onClick={async ({ target }) => {
-                await fetchData(target);
-                toggleDropDown(false);
+              onMouseDown={async ({ target }) => {
+                await fetchData(target.value);
               }}
             >
               {listValue}
             </button>
           </li>
-      );
+        );
       })}
     </ul>
   );

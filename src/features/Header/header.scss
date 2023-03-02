@@ -14,9 +14,5 @@
   .container {
     @include flexer($justify: space-between, $align: center, $wrap: wrap);
   }
-  .switch-theme-btn {
-    @include reset-btn-style;
-    @include flexer($align: center, $gap: 10px);
-    color: inherit;
-  }
+
 }

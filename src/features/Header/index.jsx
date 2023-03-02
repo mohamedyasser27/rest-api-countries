@@ -1,5 +1,5 @@
 import React from "react";
-import SwitchThemeBtn from "./components/SwitchThemeBtn";
+import SwitchThemeBtn from "./components/SwitchThemeBtn/SwitchThemeBtn";
 import "./header.scss";
 export default function Header() {
   return (
