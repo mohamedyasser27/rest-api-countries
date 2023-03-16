@@ -1,31 +1,43 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import Header from "@features/Header/";
 import Toolbar from "@features/Toolbar/";
 import CountryCards from "@features/CountryCards/";
 import ThemeContext from "@context/ThemeContext";
 import CountriesContext from "@context/CountriesContext";
-import useCountriesApi from "@hooks/useCountriesApi";
+import { Routes, Route } from "react-router-dom";
+import useCountries from "./hooks/useCountries";
 import "@assets/scss/global.scss";
+
+function Home() {
+  const [countries, dispatch] = useCountries();
+
+  return (
+    <div className="container">
+      <CountriesContext.Provider value={[countries, dispatch]}>
+        <Toolbar />
+        <CountryCards />
+      </CountriesContext.Provider>
+    </div>
+  );
+}
+
 export default function App() {
   const { theme } = useContext(ThemeContext);
-  const [countriesData, setCountriesData] = useState([]);
-  const { getAllCountries } = useCountriesApi();
 
-  useEffect(() => {
-    (async () => {
-      setCountriesData(await getAllCountries());
-    })();
-  }, []);
-  
   return (
     <main className={theme}>
       <Header />
-      <div className="container">
-        <CountriesContext.Provider value={{ countriesData, setCountriesData }}>
-          <Toolbar />
-          <CountryCards />
-        </CountriesContext.Provider>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="*"></Route>
+      </Routes>
     </main>
   );
+}
+
+// const [countriesData, setCountriesData] = useState([]);
+{
+  /* <CountriesContext.Provider
+    value={{ countriesData, setCountriesData }}
+  ></CountriesContext.Provider> */
 }

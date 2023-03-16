@@ -12,7 +12,7 @@ function getCurrentTheme() {
 }
 
 export default function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(getCurrentTheme());
+  const [theme, setTheme] = useState(() => getCurrentTheme());
   function switchTheme() {
     setTheme((prev) => (prev == "dark" ? "light" : "dark"));
   }
