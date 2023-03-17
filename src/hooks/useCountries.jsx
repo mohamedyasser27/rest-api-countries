@@ -1,35 +1,7 @@
 import { useReducer, useEffect, useRef } from "react";
 import axios from "axios";
+import formulateCountriesOutput from "@src/utils/ManipulateCountriesData";
 export default function useCountries() {
-  function extractCountryRequiredData(country) {
-    const {
-      flags: { png: flagImg } = {},
-      name = "",
-      nativeName = "",
-      capital = "",
-      topLevelDomain = "",
-      region = "",
-      population = 0,
-      currencies = [],
-      languages = [],
-      borders = [],
-    } = country;
-    return {
-      flagImg,
-      name,
-      nativeName,
-      capital,
-      topLevelDomain,
-      region,
-      population,
-      currencies,
-      language: languages[0].name || "",
-      borders,
-    };
-  }
-  function formulateCountriesOutput(countries) {
-    return countries.map((country) => extractCountryRequiredData(country));
-  }
   function reducer(state, action) {
     switch (action.type) {
       case "initialize": {
@@ -50,7 +22,6 @@ export default function useCountries() {
     }
     throw Error("Unknown action: " + action.type);
   }
-
   const initialCountries = useRef([]);
   const [countries, dispatch] = useReducer(reducer, initialCountries.current);
 

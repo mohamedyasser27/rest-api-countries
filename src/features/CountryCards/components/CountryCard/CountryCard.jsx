@@ -1,25 +1,14 @@
 import React from "react";
 import "./CountryCard.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Link } from "react-router-dom";
 export default function CountryCard({ countryData }) {
   return (
-    <div
-      className="country-card"
-      draggable={true}
-      onDragEnter={(e) => console.log(e)}
-      // onDragLeave={(e) => console.log("onDragLeave")}
-      // onDragOver={(e) => {
-      //   e.preventDefault();
-      //   console.log("onDragOver");
-      // }}
-      // onDragStart={(e) => console.log("onDragStart")}
-      // onDragEnd={(e) => console.log("onDragEnd")}
-      onDrop={(e) => console.log(1)}
-    >
+    <Link className="country-card" to={`/${countryData.name}`}>
       <div className="country-card__flag-container">
         <LazyLoadImage
           className="country-card__flag-img"
-          src={countryData.flagImg}
+          src={countryData.flagImgPng}
         />
       </div>
       <div className="country-card__details">
@@ -34,6 +23,6 @@ export default function CountryCard({ countryData }) {
           <span> capital:</span> {countryData.capital}
         </p>
       </div>
-    </div>
+    </Link>
   );
 }

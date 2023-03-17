@@ -1,11 +1,17 @@
+
 .country-card {
+  &:visited,&{
+    color: unset;
+  }
   display: grid;
   grid-template-rows: 150px 1fr;
   border-radius: 10px;
   box-shadow: var(--ElementShadow);
   transition: scale 225ms ease-out;
 
+
   & span {
+
     font-weight: 800;
   }
 

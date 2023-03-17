@@ -3,12 +3,13 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import svgr from "vite-plugin-svgr";
 export default defineConfig({
-  plugins: [react(),svgr()],
+  plugins: [react(), svgr()],
   css: {
     preprocessorOptions: {
       scss: {
         additionalData:
-          '@use "./src/assets/scss/abstracts/_abstracts-dir.scss" as *;'},
+          '@use "./src/assets/scss/abstracts/_abstracts-dir.scss" as *;',
+      },
     },
   },
   resolve: {

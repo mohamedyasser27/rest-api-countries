@@ -1,23 +1,25 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, { useContext } from "react";
+import { Routes, Route } from "react-router-dom";
+import CountriesContext from "@context/CountriesContext";
+import ThemeContext from "@context/ThemeContext";
+import CountryCards from "@features/CountryCards/";
+import CountryDetails from "@features/CountryDetails/";
+
 import Header from "@features/Header/";
 import Toolbar from "@features/Toolbar/";
-import CountryCards from "@features/CountryCards/";
-import ThemeContext from "@context/ThemeContext";
-import CountriesContext from "@context/CountriesContext";
-import { Routes, Route } from "react-router-dom";
 import useCountries from "./hooks/useCountries";
 import "@assets/scss/global.scss";
+import MapSection from "./features/MapSection";
 
 function Home() {
   const [countries, dispatch] = useCountries();
 
   return (
-    <div className="container">
+
       <CountriesContext.Provider value={[countries, dispatch]}>
         <Toolbar />
         <CountryCards />
       </CountriesContext.Provider>
-    </div>
   );
 }
 
@@ -27,10 +29,13 @@ export default function App() {
   return (
     <main className={theme}>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="*"></Route>
-      </Routes>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/:countryName" element={<CountryDetails />}></Route>
+          <Route path="*"></Route>
+        </Routes>
+      </div>
     </main>
   );
 }

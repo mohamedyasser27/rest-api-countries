@@ -1,8 +1,5 @@
 @use "./vendors/vendor-dir" as *;
-@use "./base/base-dir" as *;
-
-
-
+@use "./src/assets/scss/base/_base-dir.scss" as *;
 $themes: (
   darkTheme: (
     "--ElementBG": #2b3945,
