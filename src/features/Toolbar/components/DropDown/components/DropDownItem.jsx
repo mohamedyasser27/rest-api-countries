@@ -4,7 +4,7 @@ export default function DropDownItem({ listValue }) {
   const [countriesData, dispatch] = useContext(CountriesContext);
 
   return (
-    <li className="drop-down__list-item">
+    <li role="menuitem" className="drop-down__list-item">
       <button
         value={listValue}
         className="drop-down__btn"

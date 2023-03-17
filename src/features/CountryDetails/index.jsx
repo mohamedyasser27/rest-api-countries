@@ -7,6 +7,7 @@ import { ReactComponent as ArrowIcon } from "/public/icon-arrow.svg";
 import MapSection from "@features/MapSection/";
 export default function CountryDetails() {
   const { countryName } = useParams();
+  console.log("🚀 ~ file: index.jsx:10 ~ CountryDetails ~ countryName:", countryName)
   const [countryData, setCountryData] = useState({});
   const navigate = useNavigate();
   useEffect(() => {

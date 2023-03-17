@@ -5,7 +5,11 @@ export default function DropDownList({ isToggled }) {
   const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
   return (
-    <ul className={`drop-down__list ${isToggled ? "visible" : ""}`}>
+    <ul
+      role="menu"
+      aria-orientation="vertical"
+      className={`drop-down__list ${isToggled ? "visible" : ""}`}
+    >
       {regions.map((listValue) => {
         return <DropDownItem key={listValue} listValue={listValue} />;
       })}

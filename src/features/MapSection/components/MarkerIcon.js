@@ -1,5 +1,5 @@
-import markerpng from "../assets/marker-icon.png";
-import shadowpng from "../assets/marker-shadow.png";
+import markerpng from "../assets/images/marker-icon.png";
+import shadowpng from "../assets/images/marker-shadow.png";
 
 const markerIcon = L.icon({
   iconUrl: markerpng,

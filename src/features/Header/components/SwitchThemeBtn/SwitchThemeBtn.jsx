@@ -8,7 +8,12 @@ export default function SwitchThemeBtn() {
   const { theme, switchTheme } = useContext(ThemeContext);
   const isThemeDark = theme == "dark";
   return (
-    <button className="switch-theme-btn" onClick={switchTheme}>
+    <button
+      className="switch-theme-btn"
+      onClick={switchTheme}
+      aria-label="Toggle light/dark mode"
+      aria-pressed={isThemeDark ? "true" : "false"}
+    >
       {isThemeDark ? (
         <LighIcon className="drop-down__icon" />
       ) : (

@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { TileLayer, Marker, MapContainer, ZoomControl } from "react-leaflet";
 import markerIcon from "./components/MarkerIcon";
-import "./MapSection.scss";
+import "./assets/css/leaflet.css";
+import './MapSection.scss'
 
 export default function MapSection({ lat, lng }) {
   let mapRef = useRef(null);

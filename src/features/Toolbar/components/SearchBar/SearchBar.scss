@@ -10,6 +10,9 @@
   }
 }
 
+label{
+  @include invisible-heading;
+}
 #search-bar__input {
   border: none;
   border-radius: inherit;

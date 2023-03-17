@@ -5,6 +5,8 @@ import { ReactComponent as MinimizeIcon } from "/public/icon-minimize.svg";
 export default function DropDownToggle({ isToggled, toggleDropDown }) {
   return (
     <button
+      aria-haspopup="listbox"
+      aria-expanded={isToggled ? "true" : "false"}
       className="drop-down__toggle"
       onClick={toggleDropDown}
       onBlur={(e) => {
