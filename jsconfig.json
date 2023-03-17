@@ -7,7 +7,9 @@
       "@components/*": ["./src/components/*"],
       "@features/*": ["./src/features/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@context/*": ["./src/context/*"]
+      "@context/*": ["./src/context/*"],
+      "@routes/*": ["./src/routes/*"]
+
     }
   }
 }

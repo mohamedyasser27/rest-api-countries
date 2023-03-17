@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "./assets/scss/CountryDetails.scss";
-import formulateCountriesOutput from "@src/utils/ManipulateCountriesData";
-import { ReactComponent as ArrowIcon } from "/public/icon-arrow.svg";
+import axios from "axios";
+import { ReactComponent as ArrowIcon } from "@assets/images/icon-arrow.svg";
 import MapSection from "@features/MapSection/";
+import "./assets/scss/CountryDetails.scss";
+import { getCountries } from "@src/utils/ManipulateCountriesData";
 export default function CountryDetails() {
   const { countryName } = useParams();
-  console.log("🚀 ~ file: index.jsx:10 ~ CountryDetails ~ countryName:", countryName)
   const [countryData, setCountryData] = useState({});
+
   const navigate = useNavigate();
   useEffect(() => {
-    (async () => {
-      const { data: allCountries = {} } = await axios("/data.json");
-      setCountryData(
-        formulateCountriesOutput(
-          allCountries.filter((country) => country.name == countryName)
-        )[0]
-      );
-    })();
+    getCountries("name", countryName).then((data) => {
+      setCountryData(data[0]);
+    });
   }, []);
 
   return (
@@ -77,6 +72,17 @@ export default function CountryDetails() {
                 <li className="country__info-item">
                   <span>Languages: </span>
                   {countryData.language}
+                </li>
+                <li className="country__info-item" id="country-borders">
+                  <span>Borders: </span>
+                  {countryData.borders.map((border, index) => {
+                    return (
+                      <>
+                        <button className="border-btn">${border}</button>
+                      </>
+                    );
+                  })}
+                  {/* `countryData.borders.length-1!=index?",":""} */}
                 </li>
               </ul>
             </div>

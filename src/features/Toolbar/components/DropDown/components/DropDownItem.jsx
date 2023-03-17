@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import CountriesContext from "@src/context/CountriesContext";
+import { getCountries } from "@src/utils/ManipulateCountriesData";
 export default function DropDownItem({ listValue }) {
-  const [countriesData, dispatch] = useContext(CountriesContext);
+  const [countriesData, setCountries] = useContext(CountriesContext);
 
   return (
     <li role="menuitem" className="drop-down__list-item">
@@ -9,10 +10,8 @@ export default function DropDownItem({ listValue }) {
         value={listValue}
         className="drop-down__btn"
         onMouseDown={({ target }) => {
-          dispatch({
-            type: "filter",
-            filterName: "region",
-            filterValue: target.value,
+          getCountries("region", target.value).then((data) => {
+            setCountries(data);
           });
         }}
       >

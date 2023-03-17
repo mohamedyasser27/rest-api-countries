@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as ExpandIcon } from "/public/icon-expand.svg";
-import { ReactComponent as MinimizeIcon } from "/public/icon-minimize.svg";
+import { ReactComponent as ExpandIcon } from "@assets/images/icon-expand.svg";
+import { ReactComponent as MinimizeIcon } from "@assets/images/icon-minimize.svg";
 
 export default function DropDownToggle({ isToggled, toggleDropDown }) {
   return (

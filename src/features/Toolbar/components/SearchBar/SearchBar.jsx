@@ -1,21 +1,20 @@
 import React, { useState, useContext } from "react";
 import CountriesContext from "@src/context/CountriesContext";
-import { ReactComponent as SearchIcon } from "/public/icon-search.svg";
+import { ReactComponent as SearchIcon } from "@assets/images/icon-search.svg";
 import "./SearchBar.scss";
+import { getCountries } from "@src/utils/ManipulateCountriesData";
 export default function SearchBar() {
   const [countrynameInput, setCountrynameInput] = useState("");
-  const [countriesData,dispatch] = useContext(CountriesContext);
+  const [countriesData, setCountries] = useContext(CountriesContext);
 
   function onChange({ target }) {
     setCountrynameInput(target.value);
   }
 
-  async function onSubmit(e) {
+   function onSubmit(e) {
     e.preventDefault();
-    dispatch({
-      type: "filter",
-      filterName: "name",
-      filterValue: countrynameInput,
+    getCountries("name", countrynameInput).then((data) => {
+      setCountries(data);
     });
     setCountrynameInput("");
   }
