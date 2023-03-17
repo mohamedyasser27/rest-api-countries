@@ -6,7 +6,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -27,14 +27,16 @@ Users should be able to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode *(optional)*
 
-### Screenshot
+### Screenshots
 
-![screen](./screenshot.jpg)
+![home screenshot](./screenshots/desktop-screenshot.png)
+
+![details screenshot](./screenshots/mobile-screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Repo](https://github.com/mohamedyasser27/rest-api-countries)
+- Live Site URL: [Site](https://rest-countries-api-my.netlify.app/)
 
 ## My process
 
@@ -45,16 +47,23 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
+- React
+- React-router
 - scss
 
 ### What I learned
 
-- how to use switch theme using custom hooks and context to change the used color variables across the whole website
+- use switch theme using custom hooks and context to change the used color variables across the whole website.
+- use accessibility properties like "aria-expanded","role","aria-haspopup".
+- use _redirects to configure routing on hosting platform.
+- use SVGR to use SVGs as components for cleaner code.
+- use react router to manage routing.
+- use custom hooks.
 
 ### Continued development
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [react router course 1](https://www.youtube.com/playlist?list=PLC3y8-rFHvwjkxt8TOteFdT_YmzwpBlrG) - this helped me with understanding the basics of react routing
+
+- [react router course 2](https://www.youtube.com/playlist?list=PL4cUxeGkcC9iVKmtNuCeIswnQ97in2GGf) - this helped me with newer version of react router
