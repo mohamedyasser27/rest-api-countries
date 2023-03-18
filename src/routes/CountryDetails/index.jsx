@@ -14,14 +14,14 @@ export default function CountryDetails() {
     getCountries("name", countryName).then((data) => {
       setCountryData(data[0]);
     });
-  }, []);
+  }, [countryData]);
 
   return (
     <>
       <button
         className="back-btn"
         onClick={() => {
-          navigate(-1);
+          navigate('/');
         }}
       >
         <ArrowIcon />
@@ -75,14 +75,18 @@ export default function CountryDetails() {
                 </li>
                 <li className="country__info-item" id="country-borders">
                   <span>Borders: </span>
-                  {countryData.borders.map((border, index) => {
+                  {countryData.borders.map( (border, index) => {
+                  
                     return (
-                      <>
-                        <button className="border-btn">${border}</button>
-                      </>
+                      <button key={border} className="border-btn" onClick={() => {
+                        getCountries("alpha3Code", border).then(([data]) => {
+                             navigate(`/${data.name}`);
+                          });
+                      }}>
+                        {border}
+                      </button>
                     );
                   })}
-                  {/* `countryData.borders.length-1!=index?",":""} */}
                 </li>
               </ul>
             </div>

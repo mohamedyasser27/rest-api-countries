@@ -11,6 +11,7 @@ export default function SearchBar() {
     setCountrynameInput(target.value);
   }
 
+  console.log(countriesData);
    function onSubmit(e) {
     e.preventDefault();
     getCountries("name", countrynameInput).then((data) => {

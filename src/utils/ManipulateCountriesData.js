@@ -1,4 +1,4 @@
-import axios, { all } from "axios";
+import axios from "axios";
 function extractCountryRequiredData(country) {
   const {
     flags: { svg: flagImgSvg, png: flagImgPng } = {},
@@ -12,6 +12,7 @@ function extractCountryRequiredData(country) {
     languages = [],
     borders = [],
     latlng = [],
+    alpha3Code="",
   } = country;
   return {
     flagImgSvg,
@@ -25,6 +26,7 @@ function extractCountryRequiredData(country) {
     currencies,
     language: languages[0].name || "",
     borders,
+    alpha3Code,
     lat: latlng[0],
     lng: latlng[1],
   };
@@ -34,7 +36,6 @@ function formulateCountriesOutput(countries) {
 }
 async function getCountries(filterName, filterValue) {
   const { data: allCountries } = await axios("/data.json");
-  console.log(allCountries)
   return formulateCountriesOutput(
     filterName
       ? allCountries.filter((country) => {
