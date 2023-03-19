@@ -1,6 +1,6 @@
-
 .country-card {
-  &:visited,&{
+  &:visited,
+  & {
     color: unset;
   }
   display: grid;
@@ -9,9 +9,7 @@
   box-shadow: var(--ElementShadow);
   transition: scale 225ms ease-out;
 
-
   & span {
-
     font-weight: 800;
   }
 
@@ -48,5 +46,11 @@
       weight: 800;
       size: 1.5rem;
     }
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
   }
 }

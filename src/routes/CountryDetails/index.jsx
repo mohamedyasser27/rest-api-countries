@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { ReactComponent as ArrowIcon } from "@assets/images/icon-arrow.svg";
 import MapSection from "@features/MapSection/";
 import "./assets/scss/CountryDetails.scss";

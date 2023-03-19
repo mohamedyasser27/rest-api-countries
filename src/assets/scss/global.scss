@@ -44,6 +44,8 @@ main {
   &.dark {
     @include themeGenerator($themes, "darkTheme");
   }
+padding-bottom: 50px;
+
 }
 
 .search-bar,
