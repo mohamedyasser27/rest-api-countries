@@ -21,7 +21,7 @@ export default function SearchBar() {
 
   return (
     <form onSubmit={onSubmit} className="search-bar">
-      <SearchIcon alt="search icon" className="search-bar__icon" title="search icon"/>
+      <SearchIcon  className="search-bar__icon"/>
       <label htmlFor="search-bar__input">Search for a country:</label>
       <input
         id="search-bar__input"
