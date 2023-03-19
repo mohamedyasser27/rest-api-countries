@@ -8,19 +8,20 @@ export default function CountryCard({ countryData }) {
       <div className="country-card__flag-container">
         <LazyLoadImage
           className="country-card__flag-img"
+          alt={`flag for ${countryData.name}`}
           src={countryData.flagImgPng}
         />
       </div>
       <div className="country-card__details">
         <h2 className="country-card__name">{countryData.name}</h2>
         <p className="country-card__population">
-          <span> population</span> {countryData.population}
+          <span className="country-card__label"> population</span> {countryData.population}
         </p>
         <p className="country-card__region">
-          <span> region:</span> {countryData.region}
+          <span className="country-card__label"> region:</span> {countryData.region}
         </p>
         <p className="country-card__capital">
-          <span> capital:</span> {countryData.capital}
+          <span className="country-card__label"> capital:</span> {countryData.capital}
         </p>
       </div>
     </Link>

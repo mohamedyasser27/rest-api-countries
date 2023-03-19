@@ -59,6 +59,7 @@ Users should be able to:
 - use SVGR to use SVGs as components for cleaner code.
 - use react router to manage routing.
 - use custom hooks.
+- usage of line clamp to limit the number of lines
 
 ### Continued development
 

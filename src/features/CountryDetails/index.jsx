@@ -18,6 +18,9 @@ export default function CountryDetails() {
   return (
     <>
       <button
+        title="Go back to previous page"
+        role="button"
+        aria-label="Back"
         className="back-btn"
         onClick={() => {
           navigate("/");
@@ -32,7 +35,7 @@ export default function CountryDetails() {
             <img
               src={countryData.flagImgSvg}
               className="country__flag"
-              alt=""
+              alt={`flag for ${countryData.name}`}
             />
 
             <div className="country__details">

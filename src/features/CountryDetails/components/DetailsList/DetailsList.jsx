@@ -43,9 +43,10 @@ export default function DetailsList({ countryData }) {
       </li>
       <li className="country__info-item" id="country-borders">
         <span>Borders: </span>
-        {countryData.borders.map((border, index) => {
+        {countryData.borders.map((border) => {
           return (
             <button
+              aria-labelledby="country-borders"
               key={border}
               className="border-btn"
               onClick={() => {

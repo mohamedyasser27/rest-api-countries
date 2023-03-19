@@ -11,7 +11,6 @@ export default function SearchBar() {
     setCountrynameInput(target.value);
   }
 
-  console.log(countriesData);
    function onSubmit(e) {
     e.preventDefault();
     getCountries("name", countrynameInput).then((data) => {
@@ -22,7 +21,7 @@ export default function SearchBar() {
 
   return (
     <form onSubmit={onSubmit} className="search-bar">
-      <SearchIcon alt="search icon" className="search-bar__icon" />
+      <SearchIcon alt="search icon" className="search-bar__icon" title="search icon"/>
       <label htmlFor="search-bar__input">Search for a country:</label>
       <input
         id="search-bar__input"
