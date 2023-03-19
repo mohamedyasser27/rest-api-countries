@@ -4,7 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 export default function CountryCard({ countryData }) {
   return (
-    <Link className="country-card" to={`/${countryData.name}`}>
+    <Link className="country-card" to={`/${countryData.name.split(' ').join("_")}`}>
       <div className="country-card__flag-container">
         <LazyLoadImage
           className="country-card__flag-img"
