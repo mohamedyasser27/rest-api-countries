@@ -8,8 +8,8 @@
       "@features/*": ["./src/features/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@context/*": ["./src/context/*"],
-      "@routes/*": ["./src/routes/*"]
-
+      "@routes/*": ["./src/routes/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   }
 }

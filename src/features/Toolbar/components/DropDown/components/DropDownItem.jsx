@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import CountriesContext from "@src/context/CountriesContext";
+import CountriesContext from "@context/CountriesContext";
 import { getCountries } from "@src/utils/ManipulateCountriesData";
 export default function DropDownItem({ listValue }) {
   const [countriesData, setCountries] = useContext(CountriesContext);

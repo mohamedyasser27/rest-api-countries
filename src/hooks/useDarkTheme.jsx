@@ -1,4 +1,4 @@
-import ThemeContext from "@src/context/ThemeContext";
+import ThemeContext from "@context/ThemeContext";
 import { useEffect, useState } from "react";
 function getCurrentTheme() {
   if (localStorage.getItem("theme") == null) {

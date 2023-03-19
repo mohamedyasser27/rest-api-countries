@@ -32,33 +32,8 @@
   }
   @include element("flag") {
     @include widther(650px);
+    box-shadow: var(--ElementShadow);
     
   }
-  @include element("info-list") {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    row-gap: 20px;
-    column-gap: 10px;
-    @media (max-width: 810px) {
-     grid-template-columns: 1fr;
-    }
-  }
-  @include element("info-item") {
-    font-weight: 300;
-    span{
-      font-weight: 800;
-    }
-  }
-}
 
-#country-borders{
-  grid-column: 1/-1;
-}
-
-.border-btn{
-  @include reset-btn-style(var(--ElementBG));
-  color: var(--TextColor);
-  @include widther(95px);
-  padding: 5px;
-  margin: 3px;
 }

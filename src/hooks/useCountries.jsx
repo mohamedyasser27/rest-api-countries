@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCountries } from "@src/utils/ManipulateCountriesData";
+import { getCountries } from "@utils/ManipulateCountriesData";
 export default function useCountries() {
   const [countries, setCountries] = useState([]);
   useEffect(() => {

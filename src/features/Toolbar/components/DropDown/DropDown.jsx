@@ -1,5 +1,5 @@
 import React from "react";
-import useToggle from "@src/hooks/useToggle";
+import useToggle from "@hooks/useToggle";
 import DropDownList from "./components/DropDownList";
 import DropDownToggle from "./components/DropDownToggle";
 import "./DropDown.scss";

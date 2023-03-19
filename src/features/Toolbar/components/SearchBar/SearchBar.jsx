@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
-import CountriesContext from "@src/context/CountriesContext";
-import { ReactComponent as SearchIcon } from "@assets/images/icon-search.svg";
+import { ReactComponent as SearchIcon } from "../../assets/images/icon-search.svg";
+import CountriesContext from "@context/CountriesContext";
+import { getCountries } from "@utils/ManipulateCountriesData";
 import "./SearchBar.scss";
-import { getCountries } from "@src/utils/ManipulateCountriesData";
 export default function SearchBar() {
   const [countrynameInput, setCountrynameInput] = useState("");
   const [countriesData, setCountries] = useContext(CountriesContext);
