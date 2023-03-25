@@ -2,6 +2,7 @@ import React from "react";
 import SwitchThemeBtn from "./components/SwitchThemeBtn/SwitchThemeBtn";
 import "./header.scss";
 export default function Header() {
+  console.log(1)
   return (
     <header className="header">
       <div className="container">
