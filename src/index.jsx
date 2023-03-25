@@ -5,8 +5,6 @@ import ThemeProvider from "@hooks/useDarkTheme";
 import { BrowserRouter } from "react-router-dom";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ThemeProvider>
-    <BrowserRouter>
       <App />
-    </BrowserRouter>
   </ThemeProvider>
 );

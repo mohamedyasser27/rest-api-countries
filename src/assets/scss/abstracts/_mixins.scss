@@ -60,8 +60,8 @@
 
 // set responsive width containers
 @mixin widther($width) {
-  width: $width;
-  max-width: 100%;
+  max-width: $width;
+  width: 100%;
 }
 
 @mixin size($width, $height) {
