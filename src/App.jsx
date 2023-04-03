@@ -1,30 +1,18 @@
-import React, { useContext } from "react";
-import { Routes, Route, BrowserRouter, Outlet } from "react-router-dom";
-import CountryDetails from "@features/CountryDetails";
-import ThemeContext from "@context/ThemeContext";
+import React from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import CountryDetails from "@pages/CountryDetails";
 import useCountries from "@hooks/useCountries";
-import Header from "@features/Header/";
-import Home from "@routes/Home";
+import Home from "@src/pages/Home"
 import "@assets/scss/global.scss";
-function Layout() {
-  const { theme } = useContext(ThemeContext);
+import Main from "@layouts/Main";
 
-  return (
-    <main className={theme}>
-      <Header />
-      <div className="container">
-        <Outlet />
-      </div>
-    </main>
-  );
-}
 export default function App() {
   const [countries, setCountries] = useCountries();
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
+        <Route element={<Main />}>
           <Route
             path="/"
             element={<Home countries={countries} setCountries={setCountries} />}
