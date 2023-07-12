@@ -12,7 +12,7 @@ function extractCountryRequiredData(country) {
     languages = [],
     borders = [],
     latlng = [],
-    alpha3Code="",
+    alpha3Code = "",
   } = country;
   return {
     flagImgSvg,
@@ -34,15 +34,30 @@ function extractCountryRequiredData(country) {
 function formulateCountriesOutput(countries) {
   return countries.map((country) => extractCountryRequiredData(country));
 }
+
+function filterCountries(allCountries, filterName, filterValue) {
+  if (filterName) {
+    return allCountries.filter(
+      (country) =>
+        country[filterName].toLowerCase() == filterValue.toLowerCase()
+    );
+  } else {
+    return allCountries;
+  }
+}
+
 async function getCountries(filterName, filterValue) {
   const { data: allCountries } = await axios("/data.json");
-  return formulateCountriesOutput(
-    filterName
-      ? allCountries.filter((country) => {
-          return country[filterName].toLowerCase() == filterValue.toLowerCase();
-        })
-      : allCountries
+  const requestedCountries = filterCountries(
+    allCountries,
+    filterName,
+    filterValue
   );
+  if (requestedCountries.length != 0) {
+    return formulateCountriesOutput(requestedCountries);
+  } else {
+    throw new Error("no country Found");
+  }
 }
 
 export { getCountries };
