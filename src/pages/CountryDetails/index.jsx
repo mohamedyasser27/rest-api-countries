@@ -10,10 +10,11 @@ export default function CountryDetails() {
   const navigate = useNavigate();
   const [countryData, setCountryData] = useState({});
   useEffect(() => {
-    getCountries("name", countryName.split("_").join(" ")).then((data) => {
-      setCountryData(data[0]);
+    getCountries("name", countryName.split("_").join(" ")).then(([data]) => {
+      setCountryData(data);
     });
-  }, [countryData]);
+  }, [countryName]);
+
 
   return (
     <>
